@@ -91,12 +91,12 @@ const skip_song = (message, server_queue) => {
     if (!server_queue) {
         return message.channel.send(`нету песен на очереди `);
     }
-    server_queue.connection.dispatcher.destroy();
+    server_queue.connection.dispatcher.end();
 }
 const stop_song = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('Тебе нужно быть на канале что бы использовать эту комманду');
     server_queue.songs = [];
-    server_queue.connection.dispatcher.destroy();
+    server_queue.connection.dispatcher.end();
 }
 
 const pause_song = (message, server_queue) => {
