@@ -9,7 +9,7 @@ module.exports = {
     cooldown: 1,
     description: 'Музыкальный Бот',
     async execute(message,args, cmd, client, Discord){
-        const VCchannelID = ('id');
+        const VCchannelID = ('856860838324207656');
         const voice_channel = guild.channels.cache.get(VCchannelID);
         if (!voice_channel)return message.channel.send('Тебе нужно быть на голосовом канале!');
         const permissions = voice_channel.permissionsFor(message.client.user);
