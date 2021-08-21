@@ -9,7 +9,7 @@ module.exports = {
     cooldown: 1,
     description: 'Музыкальный Бот',
     async execute(message,args, cmd, client, Discord){
-        const voice_channel = message.member.voice.channel('856860838324207656');
+        const voice_channel = message.member.voice.channel;
         if (!voice_channel)return message.channel.send('Тебе нужно быть на голосовом канале!');
         const permissions = voice_channel.permissionsFor(message.client.user);
         if (!permissions.has('CONNECT')) return message.channel.send('У тебя недостаточно прав!');
@@ -47,7 +47,7 @@ module.exports = {
                 queue_constructor.songs.push(song);
     
                 try {
-                    const connection = await voice_channel.join();
+                    const connection = await voice_channel.join(856860838324207656);
                     queue_constructor.connection = connection;
                     video_player(message.guild, queue_constructor.songs[0]);
                 } catch (err) {
