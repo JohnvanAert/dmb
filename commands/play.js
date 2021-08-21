@@ -16,6 +16,7 @@ module.exports = {
         if (!permissions.has('SPEAK')) return message.channel.send('У тебя недостаточно прав!');
 
         const server_queue = queue.get(message.guild.id);
+        const VCchannelID = ('856860838324207656');
 
         if(cmd === 'play'){
             if (!args.length) return message.channel.send('Нужно второе значение!');
@@ -47,7 +48,7 @@ module.exports = {
                 queue_constructor.songs.push(song);
     
                 try {
-                    const connection = await voice_channel.join("856860838324207656");
+                    const connection = await voice_channel.join(VCchannelID);
                     queue_constructor.connection = connection;
                     video_player(message.guild, queue_constructor.songs[0]);
                 } catch (err) {
