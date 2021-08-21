@@ -16,7 +16,6 @@ module.exports = {
         if (!permissions.has('SPEAK')) return message.channel.send('У тебя недостаточно прав!');
 
         const server_queue = queue.get(message.guild.id);
-        const joinChannel = client.channels.get('856860838324207656');
 
 
         if(cmd === 'play'){
